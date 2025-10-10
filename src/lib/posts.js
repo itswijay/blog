@@ -3,6 +3,9 @@ import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
+import rehypeHighlight from 'rehype-highlight'
+import rehypeStringify from 'rehype-stringify'
+import remarkRehype from 'remark-rehype'
 
 const postsDirectory = path.join(process.cwd(), 'src/content/blog')
 
@@ -62,9 +65,11 @@ export async function getPostBySlug(slug) {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents)
 
-  // Use remark to convert markdown into HTML string
+  // Use remark to convert markdown into HTML string with syntax highlighting
   const processedContent = await remark()
-    .use(html)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeHighlight)
+    .use(rehypeStringify, { allowDangerousHtml: true })
     .process(matterResult.content)
   const contentHtml = processedContent.toString()
 
