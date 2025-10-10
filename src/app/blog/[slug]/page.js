@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getPostBySlug, getAllPostSlugs } from '@/lib/posts'
+import { getPostBySlug, getAllPostSlugs, getAllPosts } from '@/lib/posts'
 import BlogContent from '@/components/BlogContent'
+import RelatedPosts from '@/components/RelatedPosts'
+import { generateBlogPostJsonLd, generateBreadcrumbJsonLd } from '@/lib/seo'
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
@@ -48,8 +50,31 @@ export default async function BlogPost({ params }) {
     notFound()
   }
 
+  // Get all posts for related posts
+  const allPosts = getAllPosts()
+
+  // Generate JSON-LD for SEO
+  const baseUrl = 'https://blog.itswijay.vercel.app';
+  const postUrl = `${baseUrl}/blog/${post.slug}`;
+  const jsonLd = generateBlogPostJsonLd(post, postUrl);
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: 'Home', url: baseUrl },
+    { name: 'Blog', url: `${baseUrl}/blog` },
+    { name: post.title, url: postUrl },
+  ]);
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Back Button */}
         <Link
@@ -191,6 +216,13 @@ export default async function BlogPost({ params }) {
 
         {/* Content */}
         <BlogContent contentHtml={post.contentHtml} />
+
+        {/* Related Posts */}
+        <RelatedPosts
+          currentSlug={post.slug}
+          currentTags={post.tags}
+          allPosts={allPosts}
+        />
 
         {/* Footer */}
         <footer className="mt-12 pt-8 border-t border-gray-300 dark:border-gray-700">
