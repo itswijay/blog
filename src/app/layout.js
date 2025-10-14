@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Noto_Sans_Sinhala } from 'next/font/google'
 import './globals.css'
 import 'highlight.js/styles/github-dark.css'
 import Navbar from '@/components/Navbar'
@@ -12,6 +12,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+})
+
+const sinhalaFont = Noto_Sans_Sinhala({
+  variable: '--font-sinhala',
+  subsets: ['latin', 'sinhala'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 })
 
 export const metadata = {
@@ -70,7 +76,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${sinhalaFont.variable} antialiased`}
       >
         <Navbar />
         <main className="min-h-screen">{children}</main>
