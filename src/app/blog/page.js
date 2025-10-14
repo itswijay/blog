@@ -10,12 +10,15 @@ export const metadata = {
     'Read articles about DevOps, Cyber Security, web development, JavaScript, React, Next.js, and more.',
 }
 
-export default function BlogPage({ searchParams }) {
+export default async function BlogPage({ searchParams }) {
   const allPosts = getAllPosts()
   const tags = getAllTags()
 
+  // Await searchParams in Next.js 15
+  const params = await searchParams
+
   // Filter posts by language
-  const langFilter = searchParams?.lang
+  const langFilter = params?.lang
   const posts =
     langFilter && langFilter !== 'all'
       ? allPosts.filter((post) => post.language === langFilter)
