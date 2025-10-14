@@ -5,7 +5,6 @@ excerpt: 'Learn how to build modern web applications with Next.js 15 and the new
 author: 'Your Name'
 tags: ['nextjs', 'react', 'web-development']
 image: '/images/nextjs-blog.jpg'
-views: 1250
 featured: true
 ---
 

@@ -5,7 +5,6 @@ excerpt: 'A comprehensive guide to understanding and using React Hooks in your a
 author: 'Your Name'
 tags: ['react', 'javascript', 'hooks', 'web-development']
 image: '/images/react-hooks.jpg'
-views: 2100
 featured: true
 ---
 

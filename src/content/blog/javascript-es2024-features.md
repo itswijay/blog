@@ -5,7 +5,6 @@ excerpt: 'Explore the latest JavaScript features from ES2024 that will improve y
 author: 'Your Name'
 tags: ['javascript', 'es2024', 'web-development']
 image: '/images/js-es2024.jpg'
-views: 650
 featured: false
 ---
 

@@ -5,7 +5,6 @@ excerpt: 'Learn proven techniques to make your websites faster and improve user 
 author: 'Your Name'
 tags: ['performance', 'optimization', 'web-development', 'seo']
 image: '/images/performance.jpg'
-views: 1450
 featured: true
 ---
 
@@ -27,7 +26,6 @@ Images are often the biggest performance bottleneck:
 
 ```jsx
 import Image from 'next/image'
-
 ;<Image
   src="/hero.jpg"
   alt="Hero image"
