@@ -4,6 +4,7 @@ import { getPostBySlug, getAllPostSlugs, getAllPosts } from '@/lib/posts'
 import BlogContent from '@/components/BlogContent'
 import RelatedPosts from '@/components/RelatedPosts'
 import ViewCounter from '@/components/ViewCounter'
+import LanguageBadge from '@/components/LanguageBadge'
 import { generateBlogPostJsonLd, generateBreadcrumbJsonLd } from '@/lib/seo'
 
 // Generate static params for all blog posts
@@ -100,12 +101,15 @@ export default async function BlogPost({ params }) {
 
         {/* Header */}
         <header className="mb-8">
-          {/* Featured Badge */}
-          {post.featured && (
-            <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-semibold px-3 py-1 rounded mb-4">
-              Featured
-            </span>
-          )}
+          {/* Badges */}
+          <div className="flex gap-2 mb-4">
+            {post.featured && (
+              <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-semibold px-3 py-1 rounded">
+                Featured
+              </span>
+            )}
+            <LanguageBadge language={post.language} showFullName={true} />
+          </div>
 
           {/* Title */}
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">

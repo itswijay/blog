@@ -5,6 +5,7 @@ excerpt: 'Discover how to build beautiful, responsive designs with Tailwind CSS 
 author: 'Your Name'
 tags: ['css', 'tailwind', 'design', 'web-development']
 image: '/images/tailwind-blog.jpg'
+language: 'en'
 featured: false
 ---
 

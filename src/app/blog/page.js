@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { getAllPosts, getAllTags } from '@/lib/posts'
 import ViewCount from '@/components/ViewCount'
+import LanguageFilter from '@/components/LanguageFilter'
+import LanguageBadge from '@/components/LanguageBadge'
 
 export const metadata = {
   title: 'Blog | Pubudu Wijesundara',
@@ -8,9 +10,16 @@ export const metadata = {
     'Read articles about DevOps, Cyber Security, web development, JavaScript, React, Next.js, and more.',
 }
 
-export default function BlogPage() {
-  const posts = getAllPosts()
+export default function BlogPage({ searchParams }) {
+  const allPosts = getAllPosts()
   const tags = getAllTags()
+
+  // Filter posts by language
+  const langFilter = searchParams?.lang
+  const posts =
+    langFilter && langFilter !== 'all'
+      ? allPosts.filter((post) => post.language === langFilter)
+      : allPosts
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -25,6 +34,9 @@ export default function BlogPage() {
             technology.
           </p>
         </div>
+
+        {/* Language Filter */}
+        <LanguageFilter />
 
         {/* Tags Filter */}
         <div className="mb-8 text-center">
@@ -69,12 +81,15 @@ export default function BlogPage() {
             >
               <Link href={`/blog/${post.slug}`}>
                 <div className="p-6">
-                  {/* Featured Badge */}
-                  {post.featured && (
-                    <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold px-2.5 py-0.5 rounded mb-3">
-                      Featured
-                    </span>
-                  )}
+                  {/* Badges */}
+                  <div className="flex gap-2 mb-3">
+                    {post.featured && (
+                      <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold px-2.5 py-0.5 rounded">
+                        Featured
+                      </span>
+                    )}
+                    <LanguageBadge language={post.language} />
+                  </div>
 
                   {/* Title */}
                   <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">

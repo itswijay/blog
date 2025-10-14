@@ -5,6 +5,7 @@ excerpt: 'Learn proven techniques to make your websites faster and improve user 
 author: 'Your Name'
 tags: ['performance', 'optimization', 'web-development', 'seo']
 image: '/images/performance.jpg'
+language: 'en'
 featured: true
 ---
 

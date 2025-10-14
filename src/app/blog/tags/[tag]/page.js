@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getPostsByTag, getAllTags } from '@/lib/posts'
 import { notFound } from 'next/navigation'
 import ViewCount from '@/components/ViewCount'
+import LanguageBadge from '@/components/LanguageBadge'
 
 // Generate static params for all tags
 export async function generateStaticParams() {
@@ -14,13 +15,14 @@ export async function generateStaticParams() {
 
 // Generate metadata for each tag
 export async function generateMetadata({ params }) {
-  const { tag } = await params;
-  
+  const { tag } = await params
+
   return {
     title: `#${tag} Posts | Blog by Wijay`,
     description: `Browse all articles tagged with ${tag}.`,
   }
-}export default async function TagPage({ params }) {
+}
+export default async function TagPage({ params }) {
   const { tag } = await params
   const posts = getPostsByTag(tag)
 
@@ -71,12 +73,15 @@ export async function generateMetadata({ params }) {
             >
               <Link href={`/blog/${post.slug}`}>
                 <div className="p-6">
-                  {/* Featured Badge */}
-                  {post.featured && (
-                    <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold px-2.5 py-0.5 rounded mb-3">
-                      Featured
-                    </span>
-                  )}
+                  {/* Badges */}
+                  <div className="flex gap-2 mb-3">
+                    {post.featured && (
+                      <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold px-2.5 py-0.5 rounded">
+                        Featured
+                      </span>
+                    )}
+                    <LanguageBadge language={post.language} />
+                  </div>
 
                   {/* Title */}
                   <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">

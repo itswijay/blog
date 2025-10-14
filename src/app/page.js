@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getPopularPosts, getLatestPosts } from '@/lib/posts';
 import ViewCount from '@/components/ViewCount';
+import LanguageBadge from '@/components/LanguageBadge';
 
 export const metadata = {
   title: 'Home | Pubudu Wijesundara',
@@ -86,12 +87,15 @@ export default function Home() {
             >
               <Link href={`/blog/${post.slug}`}>
                 <div className="p-6">
-                  {/* Featured Badge */}
-                  {post.featured && (
-                    <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold px-2.5 py-0.5 rounded mb-3">
-                      Featured
-                    </span>
-                  )}
+                  {/* Badges */}
+                  <div className="flex gap-2 mb-3">
+                    {post.featured && (
+                      <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold px-2.5 py-0.5 rounded">
+                        Featured
+                      </span>
+                    )}
+                    <LanguageBadge language={post.language} />
+                  </div>
 
                   {/* Title */}
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
