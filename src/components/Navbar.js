@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -28,8 +29,8 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">W</span>
+              <div className="w-11 h-11 rounded-lg flex items-center justify-center">
+                <Image src='/blog.png' width='300' height='300' alt='logo' priority />
               </div>
               <span className="text-xl font-bold text-gray-900 dark:text-white">
                 Blog by Wijay
