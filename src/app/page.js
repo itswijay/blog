@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { getPopularPosts, getLatestPosts } from '@/lib/posts';
-import ViewCount from '@/components/ViewCount';
-import LanguageBadge from '@/components/LanguageBadge';
+import Link from 'next/link'
+import { getPopularPosts, getLatestPosts } from '@/lib/posts'
+import ViewCount from '@/components/ViewCount'
+import LanguageBadge from '@/components/LanguageBadge'
 
 export const metadata = {
   title: 'Home | Pubudu Wijesundara',
@@ -16,12 +16,22 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-700 dark:from-blue-800 dark:to-purple-900 text-white py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+      <section className="relative bg-gray-900 text-white py-20 px-4 overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/cover.jpg)' }}
+        >
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">
             Welcome to My Blog
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-blue-100">
+          <p className="text-xl md:text-2xl mb-8 drop-shadow-md">
             Thoughts, tutorials, and insights about DevOps, Cyber Security, and
             web development
           </p>

@@ -33,8 +33,7 @@ export default async function BlogPage({ searchParams }) {
             Blog
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Thoughts, tutorials, and insights about web development and
-            technology.
+            Thoughts, tutorials, and insights about technology.
           </p>
         </div>
 
