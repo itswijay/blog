@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono, Noto_Sans_Sinhala } from 'next/font/google'
 import './globals.css'
-import 'highlight.js/styles/github-dark.css'
+import 'highlight.js/styles/atom-one-dark.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 

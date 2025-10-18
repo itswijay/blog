@@ -47,6 +47,70 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Custom Blue Theme for Code Syntax Highlighting */
+.hljs {
+  background: #1e293b !important; /* Dark blue-gray background */
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #60a5fa !important; /* Light blue - your signature color */
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-symbol,
+.hljs-bullet {
+  color: #3b82f6 !important; /* Blue */
+}
+
+.hljs-number,
+.hljs-regexp {
+  color: #2563eb !important; /* Dark blue */
+}
+
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-function .hljs-title {
+  color: #60a5fa !important; /* Light blue */
+  font-weight: 600;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #94a3b8 !important; /* Muted blue-gray */
+  font-style: italic;
+}
+
+.hljs-meta,
+.hljs-meta-keyword {
+  color: #38bdf8 !important; /* Cyan blue */
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #60a5fa !important; /* Light blue */
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #3b82f6 !important; /* Blue */
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
 /* Better code block scrolling */
 .prose pre::-webkit-scrollbar {
   height: 8px;

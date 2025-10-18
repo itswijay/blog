@@ -42,7 +42,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center gap-2">
               <div className="w-11 h-11 rounded-lg flex items-center justify-center">
                 <Image
-                  src="/blog.png"
+                  src="/images/logo/blog.png"
                   width="300"
                   height="300"
                   alt="logo"
