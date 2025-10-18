@@ -4,12 +4,14 @@ date: '2025-10-01'
 excerpt: 'Learn how to build modern web applications with Next.js 15 and the new App Router.'
 author: 'Your Name'
 tags: ['nextjs', 'react', 'web-development']
-image: '/images/nextjs-blog.jpg'
+image: '/images/blog/next.webp'
 language: 'en'
 featured: true
 ---
 
 # Getting Started with Next.js 15
+
+![Next.js 15 Banner](/images/blog/next.webp)
 
 Next.js 15 brings exciting new features and improvements to help you build modern web applications faster than ever.
 
