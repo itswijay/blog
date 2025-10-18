@@ -31,6 +31,14 @@ body {
 .prose pre {
   position: relative;
   margin: 1.5rem 0;
+  background: #f9fafb !important; /* Light gray background for light mode Code block background */
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+/* Dark mode code block background */
+.dark .prose pre {
+  background: #141c2e !important; /* Code block background */
 }
 
 .prose pre code {
@@ -42,73 +50,26 @@ body {
   line-height: 1.7;
 }
 
+/* Inline code styling (backticks in markdown) */
+.prose code {
+  color: #2563eb !important; /* Blue text */
+  font-weight: 600 !important;
+}
+
+/* Dark mode inline code */
+.dark .prose code {
+  color: #60a5fa !important; /* Light blue text */
+}
+
+.prose pre code {
+  color: inherit !important;
+  font-weight: normal !important;
+  background: transparent !important;
+}
+
 /* Smooth scroll for anchor links */
 html {
   scroll-behavior: smooth;
-}
-
-/* Custom Blue Theme for Code Syntax Highlighting */
-.hljs {
-  background: #1e293b !important; /* Dark blue-gray background */
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-section,
-.hljs-link {
-  color: #60a5fa !important; /* Light blue - your signature color */
-}
-
-.hljs-string,
-.hljs-attr,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-symbol,
-.hljs-bullet {
-  color: #3b82f6 !important; /* Blue */
-}
-
-.hljs-number,
-.hljs-regexp {
-  color: #2563eb !important; /* Dark blue */
-}
-
-.hljs-title,
-.hljs-class .hljs-title,
-.hljs-function .hljs-title {
-  color: #60a5fa !important; /* Light blue */
-  font-weight: 600;
-}
-
-.hljs-comment,
-.hljs-quote {
-  color: #94a3b8 !important; /* Muted blue-gray */
-  font-style: italic;
-}
-
-.hljs-meta,
-.hljs-meta-keyword {
-  color: #38bdf8 !important; /* Cyan blue */
-}
-
-.hljs-tag,
-.hljs-name,
-.hljs-attribute {
-  color: #60a5fa !important; /* Light blue */
-}
-
-.hljs-built_in,
-.hljs-builtin-name {
-  color: #3b82f6 !important; /* Blue */
-}
-
-.hljs-emphasis {
-  font-style: italic;
-}
-
-.hljs-strong {
-  font-weight: bold;
 }
 
 /* Better code block scrolling */
