@@ -18,9 +18,9 @@ export default function BlogContent({ contentHtml }) {
       // Create copy button
       const button = document.createElement('button')
       button.className =
-        'copy-button absolute top-3 right-3 p-2 rounded bg-gray-700/80 hover:bg-gray-600 text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-200'
+        'copy-button absolute top-2 right-2 p-2 rounded hover:bg-gray-600 text-gray-300 transition-all duration-200'
       button.innerHTML = `
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
         </svg>
       `
@@ -36,22 +36,22 @@ export default function BlogContent({ contentHtml }) {
 
           // Show checkmark icon
           button.innerHTML = `
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
           `
           button.className =
-            'copy-button absolute top-3 right-3 p-2 rounded bg-green-600 hover:bg-green-500 text-white opacity-100 transition-all duration-200'
+            'copy-button absolute top-2 right-2 p-2 rounded bg-green-600 hover:bg-green-500 text-white transition-all duration-200'
 
           setTimeout(() => {
             // Restore copy icon
             button.innerHTML = `
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
               </svg>
             `
             button.className =
-              'copy-button absolute top-3 right-3 p-2 rounded bg-gray-700/80 hover:bg-gray-600 text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-200'
+              'copy-button absolute top-2 right-2 p-2 rounded hover:bg-gray-600 text-gray-300 transition-all duration-200'
           }, 2000)
         } catch (err) {
           console.error('Failed to copy:', err)
