@@ -54,3 +54,5 @@ wmic memphysical get maxcapacity, memorydevices
 ```
 
 ඔයාලගෙ ප්‍රශ්න ටික විසඳිලා අලුත් දෙයක් ඉගෙන ගන්න  ඇති කියල හිතනවා. 
+
+එහෙනම් හැමෝටම ජය වේවා! 
