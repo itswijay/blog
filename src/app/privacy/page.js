@@ -223,7 +223,7 @@ export default function PrivacyPage() {
                     href="/"
                     className="text-blue-600 dark:text-blue-400 hover:underline"
                   >
-                    https://blog.itswijay.vercel.app
+                    https://itswijay.me
                   </Link>
                 </p>
               </div>
