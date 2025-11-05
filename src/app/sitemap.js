@@ -1,7 +1,7 @@
 import { getAllPosts } from '@/lib/posts'
 
 export default function sitemap() {
-  const baseUrl = 'https://blog.itswijay.vercel.app'
+  const baseUrl = 'https://blog.itswijay.me'
 
   // Get all posts
   const posts = getAllPosts()
