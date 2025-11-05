@@ -4,9 +4,9 @@ import ViewCount from '@/components/ViewCount'
 import LanguageBadge from '@/components/LanguageBadge'
 
 export const metadata = {
-  title: 'Home | Pubudu Wijesundara',
+  title: 'Blog | Pubudu Wijesundara',
   description:
-    'Welcome to my blog. Explore articles about DevOps, Cyber Security, web development, JavaScript, React, Next.js, and more.',
+    'Welcome to my blog. Explore articles about Technology, DevOps, Cyber Security, web development, and more.',
 }
 
 export default function Home() {
@@ -32,7 +32,7 @@ export default function Home() {
             Welcome to My Blog
           </h1>
           <p className="text-xl md:text-2xl mb-8 drop-shadow-md">
-            Thoughts, tutorials, and insights about DevOps, Cyber Security, and
+            Thoughts, tutorials, and insights about Technology, DevOps, Cyber Security, and
             web development
           </p>
           <Link
