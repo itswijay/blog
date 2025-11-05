@@ -1,5 +1,5 @@
 export default function robots() {
-  const baseUrl = 'https://blog.itswijay.vercel.app'
+  const baseUrl = 'https://blog.itswijay.me'
 
   return {
     rules: {
