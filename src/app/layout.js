@@ -40,16 +40,16 @@ export const metadata = {
   ],
   authors: [{ name: 'Pubudu Wijesundara' }],
   creator: 'ItsWijay',
-  metadataBase: new URL('https://blog.itswijay.vercel.app'),
+  metadataBase: new URL('https://blog.itswijay.me'),
   alternates: {
     types: {
-      'application/rss+xml': 'https://blog.itswijay.vercel.app/rss.xml',
+      'application/rss+xml': 'https://blog.itswijay.me/rss.xml',
     },
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://blog.itswijay.vercel.app',
+    url: 'https://blog.itswijay.me',
     title: 'Blog by Wijay',
     description:
       'Thoughts, tutorials, and insights about DevOps, Cyber Security, web development and technology.',
