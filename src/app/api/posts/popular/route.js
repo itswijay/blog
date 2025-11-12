@@ -27,7 +27,8 @@ export async function GET(request) {
     const viewsMap = {}
     if (viewData) {
       viewData.forEach((item) => {
-        viewsMap[item.slug] = item.view_count || 0
+        // Ensure view_count is a number for proper sorting
+        viewsMap[item.slug] = parseInt(item.view_count) || 0
       })
     }
 
@@ -39,7 +40,11 @@ export async function GET(request) {
 
     // Sort by views (highest first) and take the limit
     const popularPosts = postsWithViews
-      .sort((a, b) => b.views - a.views)
+      .sort((a, b) => {
+        const viewsA = parseInt(a.views) || 0
+        const viewsB = parseInt(b.views) || 0
+        return viewsB - viewsA
+      })
       .slice(0, limit)
 
     // Calculate accurate reading time for each post
