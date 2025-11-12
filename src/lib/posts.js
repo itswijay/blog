@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeStringify from 'rehype-stringify'
 import remarkRehype from 'remark-rehype'
+import { supabase } from './supabase'
 
 const postsDirectory = path.join(process.cwd(), 'src/content/blog')
 
@@ -98,21 +99,52 @@ export function getLatestPosts(limit = 5) {
 }
 
 /**
- * Get popular posts based on views
+ * Get popular posts based on views from Supabase
  * @param {number} limit - Number of posts to return
- * @returns {Array} Array of popular post objects
+ * @returns {Promise<Array>} Array of popular post objects
  */
-export function getPopularPosts(limit = 5) {
+export async function getPopularPosts(limit = 5) {
   const allPosts = getAllPosts()
 
-  // Sort by views (highest first)
-  const popularPosts = allPosts.sort((a, b) => {
-    const viewsA = a.views || 0
-    const viewsB = b.views || 0
-    return viewsB - viewsA
-  })
+  try {
+    // Fetch view counts from Supabase
+    const { data: viewData, error } = await supabase
+      .from('post_views')
+      .select('slug, views')
 
-  return popularPosts.slice(0, limit)
+    if (error) {
+      console.error('Error fetching views from Supabase:', error)
+      // Fallback to returning latest posts if Supabase fails
+      return allPosts.slice(0, limit)
+    }
+
+    // Create a map of slug to view count
+    const viewsMap = {}
+    if (viewData) {
+      viewData.forEach((item) => {
+        viewsMap[item.slug] = parseInt(item.views) || 0
+      })
+    }
+
+    // Merge view counts with posts
+    const postsWithViews = allPosts.map((post) => ({
+      ...post,
+      views: viewsMap[post.slug] || 0,
+    }))
+
+    // Sort by views (highest first)
+    const popularPosts = postsWithViews.sort((a, b) => {
+      const viewsA = parseInt(a.views) || 0
+      const viewsB = parseInt(b.views) || 0
+      return viewsB - viewsA
+    })
+
+    return popularPosts.slice(0, limit)
+  } catch (error) {
+    console.error('Error in getPopularPosts:', error)
+    // Fallback to returning latest posts
+    return allPosts.slice(0, limit)
+  }
 }
 
 /**

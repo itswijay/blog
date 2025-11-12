@@ -9,8 +9,8 @@ export const metadata = {
     'Welcome to my blog. Explore articles about Technology, DevOps, Cyber Security, web development, and more.',
 }
 
-export default function Home() {
-  const popularPosts = getPopularPosts(6)
+export default async function Home() {
+  const popularPosts = await getPopularPosts(6)
   const latestPosts = getLatestPosts(4)
 
   return (
@@ -32,8 +32,8 @@ export default function Home() {
             Welcome to My Blog
           </h1>
           <p className="text-xl md:text-2xl mb-8 drop-shadow-md">
-            Thoughts, tutorials, and insights about Technology, DevOps, Cyber Security, and
-            web development
+            Thoughts, tutorials, and insights about Technology, DevOps, Cyber
+            Security, and web development
           </p>
           <Link
             href="/blog"
