@@ -6,7 +6,7 @@ author: "Pubudu Wijesundara"
 tags: ['dev', 'CSR', 'SSR', 'CSRvsSSR', 'SEO', 'Web-development', 'Programming']
 image: '/images/blog/csr-vs-ssr.png'
 language: 'en'
-featured: false
+featured: true
 ---
 
 ![CSR-vs-SSR Banner](/images/blog/csr-vs-ssr.png)
