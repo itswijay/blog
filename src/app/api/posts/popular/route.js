@@ -17,7 +17,7 @@ export async function GET(request) {
     // Fetch view counts from Supabase
     const { data: viewData, error } = await supabase
       .from('post_views')
-      .select('slug, view_count')
+      .select('slug, views')
 
     if (error) {
       console.error('Error fetching views from Supabase:', error)
@@ -27,8 +27,8 @@ export async function GET(request) {
     const viewsMap = {}
     if (viewData) {
       viewData.forEach((item) => {
-        // Ensure view_count is a number for proper sorting
-        viewsMap[item.slug] = parseInt(item.view_count) || 0
+        // Ensure views is a number for proper sorting
+        viewsMap[item.slug] = parseInt(item.views) || 0
       })
     }
 
