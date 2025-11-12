@@ -2,7 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
-import html from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeStringify from 'rehype-stringify'
@@ -40,11 +39,9 @@ export function getAllPosts() {
 
   // Sort posts by date (newest first)
   return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1
-    } else {
-      return -1
-    }
+    const dateA = new Date(a.date)
+    const dateB = new Date(b.date)
+    return dateB - dateA // Newest first
   })
 }
 
