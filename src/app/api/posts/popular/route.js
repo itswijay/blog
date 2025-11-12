@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
-import { getPopularPosts } from '@/lib/posts'
+import { getAllPosts } from '@/lib/posts'
+import { supabase } from '@/lib/supabase'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
@@ -10,14 +11,42 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url)
     const limit = parseInt(searchParams.get('limit') || '5')
 
-    // Get popular posts
-    const posts = getPopularPosts(limit)
+    // Get all posts
+    const allPosts = getAllPosts()
+
+    // Fetch view counts from Supabase
+    const { data: viewData, error } = await supabase
+      .from('post_views')
+      .select('slug, view_count')
+
+    if (error) {
+      console.error('Error fetching views from Supabase:', error)
+    }
+
+    // Create a map of slug to view count
+    const viewsMap = {}
+    if (viewData) {
+      viewData.forEach((item) => {
+        viewsMap[item.slug] = item.view_count || 0
+      })
+    }
+
+    // Merge view counts with posts
+    const postsWithViews = allPosts.map((post) => ({
+      ...post,
+      views: viewsMap[post.slug] || 0,
+    }))
+
+    // Sort by views (highest first) and take the limit
+    const popularPosts = postsWithViews
+      .sort((a, b) => b.views - a.views)
+      .slice(0, limit)
 
     // Calculate accurate reading time for each post
     const postsDirectory = path.join(process.cwd(), 'src/content/blog')
 
     // Return posts with relevant data for portfolio
-    const formattedPosts = posts.map((post) => {
+    const formattedPosts = popularPosts.map((post) => {
       // Read the full markdown file to calculate accurate reading time
       const fullPath = path.join(postsDirectory, `${post.slug}.md`)
       let readingTime = 1
