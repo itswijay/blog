@@ -4,12 +4,12 @@ date: 2025-10-19
 excerpt: "Everything You Need to Know about upgrading your Laptop RAM"
 author: "Pubudu Wijesundara"
 tags: ["laptop RAM upgrade", "how to add RAM to laptop", "sinhala", "increase laptop RAM capacity", "laptop performance tips", "laptop RAM slots"]
-image:
+image: '/images/blog/ram-upgrading.png'
 language: 'si'
 featured: false
 ---
 
-![Next.js 15 Banner](/images/blog/ram-upgrading.png)
+![Ram upgrading Banner](/images/blog/ram-upgrading.png)
 ## අද කතාකරන්න යන්නෙ ගොඩක් සරල මාතෘකාවක් ගැන...
 
 1. ඔයාගේ ලැප්ටොප් එකේ  RAM එක තව RAM card එකක් ගහල වැඩි කරගන්න පුලුවන්ද ?
