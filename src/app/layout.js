@@ -3,6 +3,7 @@ import './globals.css'
 import 'highlight.js/styles/atom-one-dark.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { Analytics } from '@vercel/analytics/next'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -67,6 +68,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark" data-scroll-behavior="smooth">
+      <Analytics />
       <head>
         <link
           rel="alternate"
