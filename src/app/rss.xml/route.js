@@ -1,7 +1,7 @@
 import { getAllPosts } from '@/lib/posts'
 
 export async function GET() {
-  const baseUrl = 'https://blog.itswijay.vercel.app'
+  const baseUrl = 'https://blog.itswijay.me'
   const posts = getAllPosts()
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
