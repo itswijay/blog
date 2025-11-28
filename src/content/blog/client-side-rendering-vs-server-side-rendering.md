@@ -73,3 +73,7 @@ Let’s say you open the same movie website but with SSR (e.g., built using Next
 | **Framework examples**     | React, Vue                      | Next.js, Nuxt.js, Remix         |
 | **Data fetching**          | After page loads (in browser)   | Before page is sent (on server) |
 | **Best for**               | Web apps, dashboards            | Blogs, e-commerce, news sites   |
+
+
+
+*Until next time — keep hacking your way forward.*
