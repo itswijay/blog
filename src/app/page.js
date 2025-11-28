@@ -186,38 +186,58 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {latestPosts.map((post) => (
               <article
                 key={post.slug}
-                className="bg-gray-50 dark:bg-gray-900 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
+                className="bg-gray-50 dark:bg-gray-900 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <Link href={`/blog/${post.slug}`}>
-                  <div className="flex flex-col h-full">
+                  <div className="p-6">
+                    {/* Badges */}
+                    <div className="flex gap-2 mb-3">
+                      {post.featured && (
+                        <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-semibold px-2.5 py-0.5 rounded">
+                          Featured
+                        </span>
+                      )}
+                      <LanguageBadge language={post.language} />
+                    </div>
+
                     {/* Title */}
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                       {post.title}
                     </h3>
 
                     {/* Excerpt */}
-                    <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow line-clamp-2">
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
                       {post.excerpt}
                     </p>
+
+                    {/* Tags */}
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {post.tags.slice(0, 2).map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Meta Info */}
                     <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                       <time dateTime={post.date}>
                         {new Date(post.date).toLocaleDateString('en-US', {
-                          month: 'long',
+                          month: 'short',
                           day: 'numeric',
                           year: 'numeric',
                         })}
                       </time>
-                      {post.tags && post.tags.length > 0 && (
-                        <span className="text-xs bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">
-                          #{post.tags[0]}
-                        </span>
-                      )}
+                      <ViewCount slug={post.slug} />
                     </div>
                   </div>
                 </Link>
