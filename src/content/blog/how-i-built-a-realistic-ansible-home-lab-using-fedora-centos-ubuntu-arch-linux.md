@@ -48,7 +48,7 @@ In my setup, I used four systems:
 
 ![Ansible-HomeLab Banner 2](/images/blog/ansible1.png)
 
-As you know Fedora is my main OS, and the other systems are VirtualBox VMs. They are VMs but working as separate systems. I give a short name for each because I can identify them in the network easily.
+As you know Fedora is my main OS, and the other systems are VirtualBox VMs. Even though they’re virtual machines, they behave as separate systems. I gave each system a short hostname so I can easily identify them on the network.
 
 ## **Configuration**
 
