@@ -460,4 +460,4 @@ Now we have a fully functional **multi-distro Ansible practice lab** using Fedor
 If you’re curious what Ansible playbooks are, they’re YAML files that define automation tasks. That’s a topic for another blog, I guess...
 
 
-*This is Wijay, until next time — keep hacking your way forward.*
+*Until next time — keep hacking your way forward.*
