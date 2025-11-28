@@ -1,14 +1,37 @@
 ---
 title: "How I Built a Realistic Ansible Home Lab Using Fedora, CentOS, Ubuntu & ArchLinux"
-date: 2025-11-21
-excerpt: The excerpt helps readers decide if they want to read the full post!
+date: 2025-11-27
+excerpt: A complete walkthrough of how I set up a fully functional Ansible home lab across four different Linux distributions. Perfect for anyone wanting hands-on automation, real-world practice, and multi-platform experience.
 author: "Pubudu Wijesundara"
-tags: [Ansible, HomeLab, ArchKinux, Fedora, CentOS, Ubuntu]
-image:
+tags: [
+  'Ansible',
+  'HomeLab',
+  'ArchLinux',
+  'Fedora',
+  'CentOS',
+  'Ubuntu',
+  'DevOps',
+  'Automation',
+  'InfrastructureAsCode',
+  'IaC',
+  'ConfigManagement',
+  'SysAdmin',
+  'Linux',
+  'LinuxAdmin',
+  'SelfHosting',
+  'HomelabLife',
+  'OpenSource',
+  'CloudComputing',
+  'Docker',
+  'BackendEngineering',
+  'TechBlog'
+]
+image: 
 language: 'en'
 featured: true
 ---
 
+![Ansible-HomeLab Banner](/images/blog/ansible.png)
 Before we begin, let's understand what Ansible is
 
 Ansible is an open-source automation tool that lets you manage servers, deploy applications, and orchestrate IT tasks without installing agents on the target systems. Everything works over **SSH**.
@@ -22,6 +45,8 @@ In my setup, I used four systems:
 - Ubuntu Server - `ubuntu`
 - CentOS - `cent`
 - Arch Linux - `arch`
+
+![Ansible-HomeLab Banner 2](/images/blog/ansible1.png)
 
 As you know Fedora is my main OS, and the other systems are VirtualBox VMs. They are VMs but working as separate systems. I give a short name for each because I can identify them in the network easily.
 
@@ -160,6 +185,8 @@ My lab IPs:
 **ubuntu** - `192.168.8.11`
 **cent** - `192.168.8.12`
 **arch** - `192.168.8.13`
+
+![Ansible-HomeLab Banner 3](/images/blog/ansible-diagram.png)
 
 Now the client configuration is complete.
 
@@ -423,9 +450,14 @@ Update all RedHat packages
 ansible -m yum -a "name='*' state=latest" redhat --become
 ```
 
+![Ansible-HomeLab Banner 3](/images/blog/ansible2.png)
+![Ansible-HomeLab Banner 3](/images/blog/ansible3.png)
+![Ansible-HomeLab Banner 3](/images/blog/ansible4.png)
+![Ansible-HomeLab Banner 3](/images/blog/ansible5.png)
+
 Now we have a fully functional **multi-distro Ansible practice lab** using Fedora, Ubuntu, CentOS, and Arch Linux. With SSH access, passwordless sudo, and a properly configured inventory, we can now run any Ansible module or playbook across all servers.
 
-Playbooks are the next exciting step YAML files that define automation tasks. It is a topic of another blog I guess...
+If you’re curious what Ansible playbooks are, they’re YAML files that define automation tasks. That’s a topic for another blog, I guess...
 
 
 *This is Wijay, until next time — keep hacking your way forward.*
